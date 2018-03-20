@@ -1,0 +1,22 @@
+
+
+
+
+<h1>Upload your artwork</h1>
+{% unless form_id %}
+  {% assign form_id = product.id %}
+{% endunless %}
+
+
+
+<form method="post" action="/cart/add" class="product-form" id="product-form-{{ form_id }}" data-product-form="{{ form_id }}" enctype="multipart/form-data">
+
+  <div>            
+<!--      <label >Logo?</label> -->
+     <input type="file" name="properties[Image]">           
+  </div>
+
+  <input type="hidden" name="id" value="{{ product.selected_variant.id }}" />
+  <input type="hidden" min="1" type="number" id="quantity" name="quantity" value="1"/>
+  <input type="submit" value="Add to cart" class="btn" />
+</form> 
